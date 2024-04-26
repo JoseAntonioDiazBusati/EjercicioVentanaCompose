@@ -18,10 +18,10 @@ fun main() = application {
 
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Mi App",
+        title = "Ejercicio Ventanas",
         icon = icon
     ) {
-        var showMainWindow by remember { mutableStateOf(false) }
+        var showMainWindow by remember { mutableStateOf(true) }
 
         if (showMainWindow) {
             MainWindow(openSecondWindow = { showMainWindow = false })
@@ -42,7 +42,7 @@ fun MainWindow(openSecondWindow: () -> Unit) {
         Text("Main Window")
         Spacer(modifier = Modifier.height(100.dp))
         Button(onClick = openSecondWindow) {
-            Text("Open Second Window")
+            Text("Abrir Second Window")
         }
     }
 }
@@ -58,7 +58,7 @@ fun SecondWindow(openMainWindow: () -> Unit) {
         Text("Second Window")
         Spacer(modifier = Modifier.height(100.dp))
         Button(onClick = openMainWindow) {
-            Text("Open Main Window")
+            Text("Abrir Main Window")
         }
     }
 }
